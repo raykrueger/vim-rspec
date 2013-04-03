@@ -7,6 +7,8 @@ let s:plugin_path = expand("<sfile>:p:h:h")
 
 if has("gui_macvim")
   let g:rspec_command = "silent !" . s:plugin_path . "/bin/run_in_os_x_terminal 'rspec {spec}'"
+elseif has("gui_gtk2")
+  let g:rspec_command = "silent !" . s:plugin_path . "/bin/run_in_gnome_terminal 'rspec {spec}'"
 else
   let g:rspec_command = "!echo rspec {spec} && rspec {spec}"
 endif
